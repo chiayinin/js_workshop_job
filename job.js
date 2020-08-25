@@ -30,10 +30,26 @@ window.addEventListener('DOMContentLoaded', function(){
 
     fetch(stringurl)
     .then((response) => response.json())
-    .then((jobs) => console.log(jobs))
+    .then((jobs) => {
+      console.log(jobs)
+      jobs.forEach((job) => createJob(job))
+    })
 
   }
 
+    function createJob(job){
+      const t = document.getElementById('api-template')
+      const clone = document.importNode(t.content, true)
 
+      clone.querySelector("h4 a").href = job.url
+      clone.querySelector("h4 a").textContent = job.title
+      clone.querySelector(".company").href = job.company_url
+      clone.querySelector(".company").textContent = job.company
+      clone.querySelector(".fulltime").textContent = job.type
+      clone.querySelector(".location").textContent = job.location
+
+      const jobList = document.querySelector('#job-pannel')
+      jobList.appendChild(clone)
+    }
 
 })

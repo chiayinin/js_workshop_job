@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', function(){
       params.append('full_time', 'on')
     }
 
-    let stringurl = `https://still-spire-37210.herokuapp.com/positions.json?${params.toString()}`
+    let stringurl = `https://js5x.herokuapp.com/positions.json?${params.toString()}`
 
     console.log(stringurl)
 
